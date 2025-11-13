@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pizzaria-pos
+    env: docker
+    plan: free
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://db.chxbzrurehvppgqlynfa.supabase.co:5432/postgres?user=postgres&password=HootHooKSU!
+      - key: SPRING_DATASOURCE_USERNAME
+        value: PizzaPOS
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: HootHooKSU!
