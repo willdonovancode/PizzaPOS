@@ -33,7 +33,18 @@ public class UserService {
         userRepository.save(user);
         return user;
     }
+    public User login(String phonenumber, String password){
+        Optional<User> tempUser = userRepository.findByPhonenumber(phonenumber);
+        if (tempUser.isEmpty()){
+            return null;
+        }
+        User user=tempUser.get();
 
+        if (password.equals(user.getPassword())){
+            return user;
+        }
+        return null;
+    }
 
     public User updateUser(User update) {
         // Find the user by their phone number (the ID)

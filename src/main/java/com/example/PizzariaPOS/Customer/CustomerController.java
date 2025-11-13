@@ -28,12 +28,28 @@ public class CustomerController {
             return customerService.getCustomers();
         }
     }
-
+    //post request creates new objects so customers ya feel
     @PostMapping
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
         Customer createdCustomer = customerService.addCustomer(customer);
         return new ResponseEntity<>(createdCustomer, HttpStatus.CREATED);
     }
+    @PostMapping("/login")
+    public ResponseEntity<Customer> loginCustomer(@RequestBody LoginRequest loginRequest){
+        Customer customer = customerService.login(loginRequest.phonenumber,loginRequest.password);
+
+        if (customer!=null){
+            //successful login! ya ya
+            return new ResponseEntity<>(customer,HttpStatus.OK);
+        }
+        else{
+            //login failed
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+    }
+
+
 
     @PutMapping
     public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
@@ -51,4 +67,9 @@ public class CustomerController {
         customerService.deleteCustomer(phonenumber);
         return new ResponseEntity<>("Customer Deleted Successfully", HttpStatus.OK);
     }
+}
+//json to expect for login
+class LoginRequest{
+    public String phonenumber;
+    public String password;
 }

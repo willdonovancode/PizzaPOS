@@ -38,6 +38,11 @@ public class CustomerService {
     public Customer addCustomer(Customer customer) {
         // IMPORTANT: hash password for encyrption! if we decide on that
         // customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        Optional<Customer> existing = customerRepository.findByPhonenumber(customer.getPhonenumber());
+        if (existing.isPresent()){
+            throw new IllegalStateException("Phone number alredy registered");
+        }
+
         customerRepository.save(customer);
         return customer;
     }
@@ -56,7 +61,22 @@ public class CustomerService {
         }
         return null;
     }
+    public Customer login(String phonenumber, String password){
+        Optional<Customer> customerTemp=customerRepository.findByPhonenumber(phonenumber);
 
+        if (customerTemp.isEmpty()){
+            return null;
+
+            //not found with phoennumber // account doesnt exist
+        }
+        Customer cust=customerTemp.get();
+        if (password.equals(cust.getPassword())){
+            return cust;//password matches
+        }
+        else{
+            return null; //incorrect password
+        }
+    }
     @Transactional
     public void deleteCustomer(String phonenumber) {
 
