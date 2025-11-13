@@ -63,10 +63,8 @@ public class CustomerService {
     }
     public Customer login(String phonenumber, String password){
         Optional<Customer> customerTemp=customerRepository.findByPhonenumber(phonenumber);
-
         if (customerTemp.isEmpty()){
             return null;
-
             //not found with phoennumber // account doesnt exist
         }
         Customer cust=customerTemp.get();
