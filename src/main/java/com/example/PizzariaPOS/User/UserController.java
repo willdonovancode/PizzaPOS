@@ -36,6 +36,15 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<User> loginUser(@RequestBody LoginRequest loginRequest){
+        User user = userService.login(loginRequest.phonenumber, loginRequest.password);
+        if (user!=null){
+            return new ResponseEntity<>(user,HttpStatus.OK);
+        }
+        return new ResponseEntity<>(user,HttpStatus.UNAUTHORIZED);
+    }
+
     // Update an existing user
     @PutMapping
     public ResponseEntity<User> updateUser(@RequestBody User user) {
@@ -53,4 +62,8 @@ public class UserController {
         userService.deleteUser(phonenumber);
         return new ResponseEntity<>("User Deleted Successfully", HttpStatus.OK);
     }
+}
+class LoginRequest {
+    public String phonenumber;
+    public String password;
 }
