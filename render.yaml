@@ -5,10 +5,10 @@ services:
     plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?user=postgres.chxbzrurehvppgqlynfa&password=HootyHoo28!
+        value: "jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?user=postgres.chxbzrurehvppgqlynfa&password=HootyHoo28!"
       - key: SPRING_DATASOURCE_USERNAME
-        value: postgres.chxbzrurehvppgqlynfa
+        value: "postgres.chxbzrurehvppgqlynfa"
       - key: SPRING_DATASOURCE_PASSWORD
-        value: HootyHoo28!
+        value: "HootyHoo28!"
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
-        value: update
+        value: "update"
