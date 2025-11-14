@@ -4,6 +4,8 @@ services:
     env: docker
     plan: free
     envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: "prod"
       - key: SPRING_DATASOURCE_URL
         value: "jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?user=postgres.chxbzrurehvppgqlynfa&password=HootyHoo28!"
       - key: SPRING_DATASOURCE_USERNAME
