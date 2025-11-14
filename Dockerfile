@@ -8,10 +8,7 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
-ENV SPRING_DATASOURCE_URL=""
-ENV SPRING_DATASOURCE_USERNAME=""
-ENV SPRING_DATASOURCE_PASSWORD=""
-ENV SPRING_JPA_HIBERNATE_DDL_AUTO="update"
+# The ENV variables are set in render.yaml, so they are removed from here.
 
 COPY --from=build /app/target/*.jar app.jar
 
