@@ -8,7 +8,7 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
-# The ENV variables are set in render.yaml, so they are removed from here.
+# The ENV variables are set in  so they are removed from here.
 
 COPY --from=build /app/target/*.jar app.jar
 
