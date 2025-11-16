@@ -31,7 +31,7 @@ public class CustomerService {
 //    }
 
     public List<Customer> getCustomerByPhoneNumber(String number){
-        return customerRepository.findAll().stream().filter(customer -> customer.getFirst_name().toLowerCase().contains(number.toLowerCase()))
+        return customerRepository.findAll().stream().filter(customer -> customer.getPhonenumber().toLowerCase().contains(number.toLowerCase()))
                .collect(Collectors.toList());
     }
 
