@@ -52,7 +52,6 @@ public class InventoryController {
             inventoryService.resupply(request.menuItemId, request.amount);
             return new ResponseEntity<>("Resupply successful", HttpStatus.OK);
         } catch (IllegalStateException e) {
-            // This catches the "No inventory tracked for menu item ID" error
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }

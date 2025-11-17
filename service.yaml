@@ -7,15 +7,19 @@ spec:
   template:
     spec:
       containers:
-        - image: us-central1-docker.pkg.dev/my-pizza-project-123/pizza-repo/pizza-pos:latest  # <-- Update this
+        - image: us-central1-docker.pkg.dev/my-pizza-project-123/pizza-repo/pizza-pos:latest  # <-- Make sure you update this with your Project ID
           ports:
             - containerPort: 8080  # Your app's port
           env:
+            # --- Updated Database Config ---
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:postgresql://db.chxbzrurehvppgqlynfa.supabase.co:5432/postgres"
+              value: "jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?ssl=true&sslmode=require"
             - name: SPRING_DATASOURCE_USERNAME
-              value: "postgres"
+              value: "postgres.lmrqyqvsdasblaixijwm"
             - name: SPRING_DATASOURCE_PASSWORD
-              value: "HootyHoo28!"  # <-- Update this
+              value: "HishamHaddad!"
             - name: SPRING_JPA_HIBERNATE_DDL_AUTO
               value: "update"
+            # Added this to be safe, as it fixes many connection errors
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+              value: "org.hibernate.dialect.PostgreSQLDialect"
