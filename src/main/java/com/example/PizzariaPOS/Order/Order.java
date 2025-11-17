@@ -1,3 +1,14 @@
+//package com.example.PizzariaPOS.Order;
+//
+//
+//import com.example.PizzariaPOS.Customer.Customer;
+//import jakarta.persistence.*;
+//
+//import java.time.LocalDateTime;
+//
+//@Entity
+//@Table(name="Order")
+//
 //public class Order {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,7 +21,7 @@
 //
 //    // List of items in this order
 //    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<OrderItem> items = new HashSet<>();
+//    //private Set<OrderItem> items = new HashSet<>();
 //
 //    private LocalDateTime timestamp;
 //    private double totalCost;

@@ -1,3 +1,14 @@
+//package com.example.PizzariaPOS.OrderItem;
+//
+//import com.example.PizzariaPOS.MenuItem.MenuItem;
+//import com.example.PizzariaPOS.Order.Order;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import jakarta.persistence.*;
+//
+//@Entity
+//@Table(name="OrderItem")
+//
+//
 //public class OrderItem {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
