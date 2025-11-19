@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="MenuItem")
+// MenuItem entity representing items in the pizzeria menu
 
 
 public class MenuItem {
