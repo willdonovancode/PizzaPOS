@@ -24,12 +24,6 @@ public class CustomerService {
     }
 
 
-//    public List<Customer> getCustomerByFirstName(String firstName) {
-//        return customerRepository.findAll().stream()
-//                .filter(customer -> customer.getFirst_name().toLowerCase().contains(firstName.toLowerCase()))
-//                .collect(Collectors.toList());
-//    }
-
     public List<Customer> getCustomerByPhoneNumber(String number){
         return customerRepository.findAll().stream().filter(customer -> customer.getPhonenumber().toLowerCase().contains(number.toLowerCase()))
                .collect(Collectors.toList());
