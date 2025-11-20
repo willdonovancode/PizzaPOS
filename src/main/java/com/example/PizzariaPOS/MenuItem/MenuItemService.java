@@ -47,6 +47,11 @@ public class MenuItemService {
         if (existingItem.isPresent()){
             MenuItem itemToUpdate = existingItem.get();
             itemToUpdate.setPrice(update.getPrice());
+            itemToUpdate.setCategory(update.getCategory());
+            itemToUpdate.setSize(update.getSize());
+            itemToUpdate.setCrust(update.getCrust());
+            itemToUpdate.setSauce(update.getSauce());
+            itemToUpdate.setToppings(update.getToppings());
             itemRepository.save(itemToUpdate);
             return itemToUpdate;
         }

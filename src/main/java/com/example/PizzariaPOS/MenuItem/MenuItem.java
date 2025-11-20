@@ -7,8 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="MenuItem")
-// MenuItem entity representing items in the pizzeria menu
+@Table(name="menuitem")
 
 
 public class MenuItem {
@@ -19,19 +18,38 @@ public class MenuItem {
     private String name;
     private double price;
     private String category; // "Pizza", "Beverage"
-    private String size; // "Small", "Large" (nullable)
-    private String crust; // "Thin", "Deep Dish" (nullable)
-
+    private String size; // "Small", "Large"
+    private String crust; // "Thin", "Deep Dish"
+    private String sauce;
+    private String toppings;
     // Constructors
     public MenuItem() {}
 
-    public MenuItem(int id,String name, double price, String category, String size, String crust) {
-        this.id=id;
+    public MenuItem(int id, String name, double price, String category, String size, String crust, String sauce, String toppings) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.category = category;
         this.size = size;
         this.crust = crust;
+        this.sauce = sauce;
+        this.toppings = toppings;
+    }
+
+    public String getSauce() {
+        return sauce;
+    }
+
+    public void setSauce(String sauce) {
+        this.sauce = sauce;
+    }
+
+    public String getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(String toppings) {
+        this.toppings = toppings;
     }
 
     // Getters and Setters
