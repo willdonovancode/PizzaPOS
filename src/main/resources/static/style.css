@@ -1,0 +1,152 @@
+/* Basic Setup sasda*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f0f2f5;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 600px;
+    position: relative;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    padding: 24px 30px;
+    animation: fadeIn 0.3s;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typography */
+h1 { text-align: center; color: #d32f2f; margin-bottom: 10px; }
+h2 { text-align: center; margin-top: 0; margin-bottom: 24px; color: #333; }
+h3 { margin: 10px 0; color: #555; }
+
+/* Opening Screen specific */
+.opening-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.opening-header p { margin: 5px 0; color: #666; }
+.opening-actions { display: flex; flex-direction: column; gap: 15px; }
+
+.welcome {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Forms */
+form { display: flex; flex-direction: column; }
+.form-group { margin-bottom: 16px; }
+.form-group label, .form-group legend {
+    display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9em;
+}
+
+.form-row { display: flex; gap: 16px; }
+.form-row .form-group { flex: 1; }
+
+input[type="text"], input[type="tel"], input[type="password"], select {
+    width: 100%; padding: 12px; font-size: 16px;
+    border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;
+}
+
+fieldset { border: none; padding: 0; margin: 0 0 16px 0; }
+fieldset div { display: flex; flex-wrap: wrap; gap: 10px; }
+fieldset label { font-weight: normal; font-size: 1em; display: flex; align-items: center; gap: 5px;}
+
+.help-text { font-size: 0.8em; color: #666; margin: 6px 0 0 0; }
+
+/* Buttons */
+.btn {
+    width: 100%; padding: 14px; font-size: 16px; font-weight: 600;
+    border: none; border-radius: 6px; cursor: pointer; margin-top: 8px;
+    transition: background-color 0.2s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background-color: #d32f2f; color: white; } /* Changed to Red for Pizza theme */
+.btn-primary:hover { background-color: #b71c1c; }
+.btn-primary:disabled { background-color: #ccc; cursor: not-allowed; }
+.btn-secondary { background-color: #f0f0f0; color: #333; }
+.btn-secondary:hover { background-color: #e0e0e0; }
+.btn-secondary:disabled { color: #aaa; }
+.btn-small { padding: 5px 10px; font-size: 0.8em; border: none; background: none; text-decoration: underline; cursor: pointer; color: #666; }
+
+/* Menu */
+.menu-categories { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.btn-category {
+    padding: 20px; text-align: left; background: #fff;
+    border: 1px solid #ddd; border-radius: 8px; cursor: pointer;
+    display: flex; flex-direction: column; transition: border-color 0.2s;
+}
+.btn-category:hover { border-color: #d32f2f; }
+.btn-category strong { font-size: 1.1em; margin-bottom: 4px; }
+.btn-category span { color: #666; font-size: 0.9em; }
+
+/* Lists */
+.item-list, #pizza-toppings-list { display: flex; flex-direction: column; gap: 12px; }
+.item-card {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px; border: 1px solid #eee; border-radius: 6px;
+}
+.topping-card {
+    display: grid; grid-template-columns: 1fr auto auto auto;
+    align-items: center; gap: 10px; padding: 8px;
+    border: 1px solid #eee; border-radius: 6px; font-size: 0.9em;
+}
+
+/* Cart & Checkout */
+.cart-items, .order-summary { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.price-line { display: flex; justify-content: space-between; font-size: 1em; margin-bottom: 8px; }
+.price-line.total { font-size: 1.2em; border-top: 2px solid #eee; padding-top: 10px; margin-top: 10px; }
+
+.payment-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 6px; }
+.header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.header-row h2 { margin: 0; }
+
+/* Manager Dashboard Styles */
+.manager-tabs { display: flex; border-bottom: 1px solid #ddd; margin-bottom: 15px; }
+.btn-tab {
+    flex: 1; padding: 10px; background: none; border: none;
+    border-bottom: 3px solid transparent; cursor: pointer; font-weight: 600; color: #666;
+}
+.btn-tab.active { border-bottom-color: #d32f2f; color: #d32f2f; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.data-list { max-height: 300px; overflow-y: auto; border: 1px solid #eee; border-radius: 6px; }
+.data-row { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+.sales-filters { display: flex; gap: 10px; margin-bottom: 10px; }
+.btn-filter { padding: 5px 10px; border: 1px solid #ddd; background: #fff; border-radius: 4px; cursor: pointer; }
+
+/* Messages */
+.message {
+    text-align: center; font-weight: 600; margin-bottom: 16px; padding: 10px; border-radius: 6px; display: none;
+}
+.message.error { color: #D8000C; background-color: #FFD2D2; display: block; }
+.message.success { color: #270; background-color: #DFF2BF; display: block; }
+
+.success-icon { font-size: 3em; color: #270; text-align: center; margin-bottom: 10px; }
